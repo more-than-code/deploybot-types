@@ -7,6 +7,10 @@ type AuthenticationInput struct {
 	Password string
 }
 
+type AuthenticationSsoInput struct {
+	IdToken string
+}
+
 type AuthenticationOutput struct {
 	UserId       primitive.ObjectID `json:"userId"`
 	AccessToken  string             `json:"accessToken"`
@@ -14,14 +18,18 @@ type AuthenticationOutput struct {
 }
 
 type User struct {
-	Id        primitive.ObjectID `json:"id" bson:"_id"`
-	Email     string             `json:"email"`
-	Password  string             `json:"password"`
-	CreatedAt primitive.DateTime `json:"createdAt"`
-	AvatarUrl string             `json:"avatarUrl"`
+	Id           primitive.ObjectID `json:"id" bson:"_id"`
+	Subject      string             `json:"subject"`
+	Email        string             `json:"email"`
+	ContactEmail string             `json:"contactEmail"`
+	Password     string             `json:"password"`
+	Name         string             `json:"name"`
+	AvatarUrl    string             `json:"avatarUrl"`
+	CreatedAt    primitive.DateTime `json:"createdAt"`
 }
 
 type CreateUserInput struct {
+	Name             string
 	Email            string
 	Password         string
 	VerificationCode string
@@ -34,4 +42,20 @@ type GetUsersInput struct {
 type GetUsersOutput struct {
 	Items      []User `json:"items"`
 	TotalCount int    `json:"totalCount"`
+}
+
+type Claims struct {
+	Iss           string
+	Nbf           int64
+	Aud           string
+	Sub           string
+	Email         string
+	EmailVerified bool `json:"email_verified"`
+	Azp           string
+	Name          string
+	Picture       string
+	GivenName     string `json:"given_name"`
+	Iat           int64
+	Exp           int64
+	Jti           string
 }
