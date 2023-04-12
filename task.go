@@ -58,6 +58,7 @@ type UpdateTaskInput struct {
 		Name           *string
 		UpstreamTaskId *primitive.ObjectID
 		StreamWebhook  *string
+		LogUrl         *string
 		ScheduledAt    *primitive.DateTime
 		Config         *interface{}
 		Remarks        *string
@@ -82,6 +83,7 @@ type CreateTaskInputTask struct {
 	Config         interface{}
 	UpstreamTaskId primitive.ObjectID `bson:",omitempty"`
 	StreamWebhook  string
+	LogUrl         string
 	AutoRun        bool
 	Timeout        int64
 	Type           string
