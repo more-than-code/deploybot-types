@@ -43,6 +43,7 @@ type Task struct {
 	Status         string             `json:"status"`
 	UpstreamTaskId primitive.ObjectID `json:"upstreamTaskId" bson:",omitempty"`
 	StreamWebhook  string             `json:"streamWebhook" bson:",omitempty"`
+	LogUrl         string             `json:"logUrl" bson:",omitempty"`
 	Config         interface{}        `json:"config"`
 	Remarks        string             `json:"remarks"`
 	AutoRun        bool               `json:"autoRun"`
