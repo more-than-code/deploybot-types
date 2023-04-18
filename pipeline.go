@@ -58,6 +58,7 @@ type PipelineUpdate struct {
 	RepoWatched   *string             `bson:",omitempty"`
 	BranchWatched *string             `bson:",omitempty"`
 	AutoRun       *bool               `bson:",omitempty"`
+	ProjectId     *primitive.ObjectID `bson:",omitempty"`
 }
 
 type UpdatePipelineInput struct {
