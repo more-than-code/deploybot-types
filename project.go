@@ -38,6 +38,11 @@ type GetProjectsInput struct {
 	UserId primitive.ObjectID
 }
 
+type GetProjectInput struct {
+	UserId primitive.ObjectID
+	Id     primitive.ObjectID
+}
+
 type GetProjectsOutput struct {
 	Items      []Project `json:"items"`
 	TotalCount int64     `json:"totalCount"`

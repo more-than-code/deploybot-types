@@ -141,6 +141,12 @@ type GetProjectsResponse struct {
 	Payload *GetProjectsOutput `json:"payload"`
 }
 
+type GetProjectResponse struct {
+	Msg     string   `json:"msg"`
+	Code    int      `json:"code"`
+	Payload *Project `json:"payload"`
+}
+
 type DeleteProjectResponse struct {
 	Msg  string `json:"msg"`
 	Code int    `json:"code"`
