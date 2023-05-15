@@ -11,6 +11,7 @@ type BuildConfig struct {
 	Dockerfile string             `json:"dockerfile" bson:",omitempty"`
 	RepoUrl    string             `json:"repoUrl"`
 	RepoName   string             `json:"repoName"`
+	RepoBranch string             `json:"repoBranch"`
 }
 
 type DeployConfig struct {
