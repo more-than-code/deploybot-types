@@ -52,21 +52,23 @@ type Task struct {
 	Type           string             `json:"type"`
 }
 
+type UpdateTaskInputTask struct {
+	Name           *string
+	UpstreamTaskId *primitive.ObjectID
+	StreamWebhook  *string
+	LogUrl         *string
+	ScheduledAt    *primitive.DateTime
+	Config         *interface{}
+	Remarks        *string
+	AutoRun        *bool
+	Timeout        *int64
+	Type           *string
+}
+
 type UpdateTaskInput struct {
 	PipelineId primitive.ObjectID
 	Id         primitive.ObjectID
-	Task       struct {
-		Name           *string
-		UpstreamTaskId *primitive.ObjectID
-		StreamWebhook  *string
-		LogUrl         *string
-		ScheduledAt    *primitive.DateTime
-		Config         *interface{}
-		Remarks        *string
-		AutoRun        *bool
-		Timeout        *int64
-		Type           *string
-	}
+	Task       UpdateTaskInputTask
 }
 
 type UpdateTaskStatusInput struct {
