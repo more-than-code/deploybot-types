@@ -176,3 +176,9 @@ type PatchMemberResponse struct {
 	Msg  string `json:"msg"`
 	Code int    `json:"code"`
 }
+
+type GetDiskInfoResponse struct {
+	Msg     string    `json:"msg"`
+	Code    int       `json:"code"`
+	Payload *DiskInfo `json:"payload"`
+}
