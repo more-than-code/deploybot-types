@@ -12,6 +12,7 @@ type Pipeline struct {
 	ScheduledAt   primitive.DateTime `json:"scheduledAt"`
 	Status        string             `json:"status"`
 	Arguments     []string           `json:"arguments"`
+	Labels        map[string]*string `json:"labels"`
 	Tasks         []Task             `json:"tasks"`
 	RepoWatched   string             `json:"repoWatched"`
 	BranchWatched string             `json:"branchWatched"`
@@ -22,6 +23,7 @@ type Pipeline struct {
 type CreatePipelineInput struct {
 	Name          string
 	Arguments     []string
+	Labels        map[string]*string
 	RepoWatched   string
 	BranchWatched string
 	AutoRun       bool
@@ -55,9 +57,11 @@ type PipelineUpdate struct {
 	Name          *string             `bson:",omitempty"`
 	ScheduledAt   *primitive.DateTime `bson:",omitempty"`
 	Arguments     []string            `bson:",omitempty"`
+	Labels        map[string]*string  `bson:",omitempty"`
 	RepoWatched   *string             `bson:",omitempty"`
 	BranchWatched *string             `bson:",omitempty"`
 	AutoRun       *bool               `bson:",omitempty"`
+	ProjectId     *primitive.ObjectID `bson:",omitempty"`
 }
 
 type UpdatePipelineInput struct {

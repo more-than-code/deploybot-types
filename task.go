@@ -11,6 +11,7 @@ type BuildConfig struct {
 	Dockerfile string             `json:"dockerfile" bson:",omitempty"`
 	RepoUrl    string             `json:"repoUrl"`
 	RepoName   string             `json:"repoName"`
+	RepoBranch string             `json:"repoBranch"`
 }
 
 type FileMountConfig struct {
@@ -49,6 +50,7 @@ type Task struct {
 	Status         string             `json:"status"`
 	UpstreamTaskId primitive.ObjectID `json:"upstreamTaskId" bson:",omitempty"`
 	StreamWebhook  string             `json:"streamWebhook" bson:",omitempty"`
+	LogUrl         string             `json:"logUrl" bson:",omitempty"`
 	Config         interface{}        `json:"config"`
 	Remarks        string             `json:"remarks"`
 	AutoRun        bool               `json:"autoRun"`
@@ -56,20 +58,23 @@ type Task struct {
 	Type           string             `json:"type"`
 }
 
+type UpdateTaskInputTask struct {
+	Name           *string
+	UpstreamTaskId *primitive.ObjectID
+	StreamWebhook  *string
+	LogUrl         *string
+	ScheduledAt    *primitive.DateTime
+	Config         *interface{}
+	Remarks        *string
+	AutoRun        *bool
+	Timeout        *int64
+	Type           *string
+}
+
 type UpdateTaskInput struct {
 	PipelineId primitive.ObjectID
 	Id         primitive.ObjectID
-	Task       struct {
-		Name           *string
-		UpstreamTaskId *primitive.ObjectID
-		StreamWebhook  *string
-		ScheduledAt    *primitive.DateTime
-		Config         *interface{}
-		Remarks        *string
-		AutoRun        *bool
-		Timeout        *int64
-		Type           *string
-	}
+	Task       UpdateTaskInputTask
 }
 
 type UpdateTaskStatusInput struct {
@@ -87,6 +92,7 @@ type CreateTaskInputTask struct {
 	Config         interface{}
 	UpstreamTaskId primitive.ObjectID `bson:",omitempty"`
 	StreamWebhook  string
+	LogUrl         string
 	AutoRun        bool
 	Timeout        int64
 	Type           string
