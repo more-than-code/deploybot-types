@@ -1,21 +1,19 @@
 package types
 
-import "go.mongodb.org/mongo-driver/bson/primitive"
-
 type Project struct {
-	Id          primitive.ObjectID `json:"id" bson:"_id"`
-	Name        string             `json:"name"`
-	AvatarUrl   string             `json:"avatarUrl"`
-	OwnerUserId primitive.ObjectID `json:"ownerUserId"`
-	Members     []Member           `json:"members"`
+	Id          ObjectId `json:"id" bson:"_id"`
+	Name        string   `json:"name"`
+	AvatarUrl   string   `json:"avatarUrl"`
+	OwnerUserId ObjectId `json:"ownerUserId"`
+	Members     []Member `json:"members"`
 	// Pipelines   []Pipeline         `json:"pipelines"`
-	CreatedAt primitive.DateTime `json:"createdAt"`
-	UpdatedAt primitive.DateTime `json:"updatedAt"`
+	CreatedAt Datetime `json:"createdAt"`
+	UpdatedAt Datetime `json:"updatedAt"`
 }
 
 type CreateProjectInput struct {
 	Name   string
-	UserId primitive.ObjectID
+	UserId ObjectId
 }
 
 type UpdateProject struct {
@@ -24,23 +22,23 @@ type UpdateProject struct {
 }
 
 type UpdateProjectInput struct {
-	Id      primitive.ObjectID
-	UserId  primitive.ObjectID
+	Id      ObjectId
+	UserId  ObjectId
 	Project UpdateProject
 }
 
 type DeleteProjectInput struct {
-	Id     primitive.ObjectID
-	UserId primitive.ObjectID
+	Id     ObjectId
+	UserId ObjectId
 }
 
 type GetProjectsInput struct {
-	UserId primitive.ObjectID
+	UserId ObjectId
 }
 
 type GetProjectInput struct {
-	UserId primitive.ObjectID
-	Id     primitive.ObjectID
+	UserId ObjectId
+	Id     ObjectId
 }
 
 type GetProjectsOutput struct {

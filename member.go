@@ -1,31 +1,29 @@
 package types
 
-import "go.mongodb.org/mongo-driver/bson/primitive"
-
 type Member struct {
-	UserId    primitive.ObjectID `json:"userId"`
-	Role      Role               `json:"role"`
-	CreatedAt primitive.DateTime `json:"datetimeCreated"`
+	UserId    ObjectId `json:"userId"`
+	Role      Role     `json:"role"`
+	CreatedAt Datetime `json:"datetimeCreated"`
 }
 
 type CreateMemberInput struct {
-	ProjectId primitive.ObjectID
+	ProjectId ObjectId
 	Member    struct {
-		UserId primitive.ObjectID
+		UserId ObjectId
 		Role   Role
 	}
 }
 
 type DeleteMemberInput struct {
-	ProjectId primitive.ObjectID
-	UserId    primitive.ObjectID
+	ProjectId ObjectId
+	UserId    ObjectId
 }
 
 type UpdateMember struct {
 	Role *Role
 }
 type UpdateMemberInput struct {
-	ProjectId primitive.ObjectID
-	UserId    primitive.ObjectID
+	ProjectId ObjectId
+	UserId    ObjectId
 	Member    UpdateMember
 }

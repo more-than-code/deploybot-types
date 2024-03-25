@@ -1,7 +1,5 @@
 package types
 
-import "go.mongodb.org/mongo-driver/bson/primitive"
-
 type AuthenticationInput struct {
 	Email    string
 	Password string
@@ -12,20 +10,20 @@ type AuthenticationSsoInput struct {
 }
 
 type AuthenticationOutput struct {
-	UserId       primitive.ObjectID `json:"userId"`
-	AccessToken  string             `json:"accessToken"`
-	RefreshToken string             `json:"refreshToken"`
+	UserId       ObjectId `json:"userId"`
+	AccessToken  string   `json:"accessToken"`
+	RefreshToken string   `json:"refreshToken"`
 }
 
 type User struct {
-	Id           primitive.ObjectID `json:"id" bson:"_id"`
-	Subject      string             `json:"subject"`
-	Email        string             `json:"email"`
-	ContactEmail string             `json:"contactEmail"`
-	Password     string             `json:"password"`
-	Name         string             `json:"name"`
-	AvatarUrl    string             `json:"avatarUrl"`
-	CreatedAt    primitive.DateTime `json:"createdAt"`
+	Id           ObjectId `json:"id" bson:"_id"`
+	Subject      string   `json:"subject"`
+	Email        string   `json:"email"`
+	ContactEmail string   `json:"contactEmail"`
+	Password     string   `json:"password"`
+	Name         string   `json:"name"`
+	AvatarUrl    string   `json:"avatarUrl"`
+	CreatedAt    Datetime `json:"createdAt"`
 }
 
 type CreateUserInput struct {
@@ -36,7 +34,7 @@ type CreateUserInput struct {
 }
 
 type GetUsersInput struct {
-	UserIds []primitive.ObjectID
+	UserIds []ObjectId
 }
 
 type GetUsersOutput struct {

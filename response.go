@@ -1,9 +1,5 @@
 package types
 
-import (
-	"go.mongodb.org/mongo-driver/bson/primitive"
-)
-
 const (
 	ExHttpStatusAuthenticationFailure = 460
 	ExHttpStatusBusinessLogicError    = 461
@@ -30,7 +26,7 @@ const (
 )
 
 type PostPipelineResponsePayload struct {
-	Id primitive.ObjectID
+	Id ObjectId
 }
 type PostPipelineResponse struct {
 	Code    int                          `json:"code"`
@@ -70,7 +66,7 @@ type PutPipelineStatusResponse struct {
 }
 
 type PostTaskResponsePayload struct {
-	Id primitive.ObjectID
+	Id ObjectId
 }
 type PostTaskResponse struct {
 	Code    int                      `json:"code"`

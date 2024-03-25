@@ -1,15 +1,13 @@
 package types
 
-import "go.mongodb.org/mongo-driver/bson/primitive"
-
 type Pipeline struct {
-	Id            primitive.ObjectID `json:"id" bson:"_id"`
+	Id            ObjectId           `json:"id" bson:"_id"`
 	Name          string             `json:"name"`
-	CreatedAt     primitive.DateTime `json:"createAt"`
-	UpdatedAt     primitive.DateTime `json:"updateAt"`
-	ExecutedAt    primitive.DateTime `json:"executedAt"`
-	StoppedAt     primitive.DateTime `json:"stoppedAt"`
-	ScheduledAt   primitive.DateTime `json:"scheduledAt"`
+	CreatedAt     Datetime           `json:"createAt"`
+	UpdatedAt     Datetime           `json:"updateAt"`
+	ExecutedAt    Datetime           `json:"executedAt"`
+	StoppedAt     Datetime           `json:"stoppedAt"`
+	ScheduledAt   Datetime           `json:"scheduledAt"`
 	Status        string             `json:"status"`
 	Arguments     []string           `json:"arguments"`
 	Labels        map[string]*string `json:"labels"`
@@ -17,7 +15,7 @@ type Pipeline struct {
 	RepoWatched   string             `json:"repoWatched"`
 	BranchWatched string             `json:"branchWatched"`
 	AutoRun       bool               `json:"autoRun"`
-	ProjectId     primitive.ObjectID `json:"projectId"`
+	ProjectId     ObjectId           `json:"projectId"`
 }
 
 type CreatePipelineInput struct {
@@ -27,16 +25,16 @@ type CreatePipelineInput struct {
 	RepoWatched   string
 	BranchWatched string
 	AutoRun       bool
-	ProjectId     primitive.ObjectID
+	ProjectId     ObjectId
 }
 
 type TaskFilter struct {
-	UpstreamTaskId *primitive.ObjectID
+	UpstreamTaskId *ObjectId
 	AutoRun        *bool
 }
 
 type GetPipelineInput struct {
-	Id         primitive.ObjectID
+	Id         ObjectId
 	Name       string
 	TaskFilter TaskFilter
 }
@@ -45,7 +43,7 @@ type GetPipelinesInput struct {
 	RepoWatched   *string `bson:",omitempty"`
 	BranchWatched *string `bson:",omitempty"`
 	AutoRun       *bool   `bson:",omitempty"`
-	ProjectId     primitive.ObjectID
+	ProjectId     ObjectId
 }
 
 type GetPipelinesOutput struct {
@@ -54,23 +52,23 @@ type GetPipelinesOutput struct {
 }
 
 type PipelineUpdate struct {
-	Name          *string             `bson:",omitempty"`
-	ScheduledAt   *primitive.DateTime `bson:",omitempty"`
-	Arguments     []string            `bson:",omitempty"`
-	Labels        map[string]*string  `bson:",omitempty"`
-	RepoWatched   *string             `bson:",omitempty"`
-	BranchWatched *string             `bson:",omitempty"`
-	AutoRun       *bool               `bson:",omitempty"`
-	ProjectId     *primitive.ObjectID `bson:",omitempty"`
+	Name          *string            `bson:",omitempty"`
+	ScheduledAt   *Datetime          `bson:",omitempty"`
+	Arguments     []string           `bson:",omitempty"`
+	Labels        map[string]*string `bson:",omitempty"`
+	RepoWatched   *string            `bson:",omitempty"`
+	BranchWatched *string            `bson:",omitempty"`
+	AutoRun       *bool              `bson:",omitempty"`
+	ProjectId     *ObjectId          `bson:",omitempty"`
 }
 
 type UpdatePipelineInput struct {
-	Id       primitive.ObjectID
+	Id       ObjectId
 	Pipeline PipelineUpdate
 }
 
 type UpdatePipelineStatusInput struct {
-	PipelineId primitive.ObjectID
+	PipelineId ObjectId
 	Pipeline   struct {
 		Status string
 	}
