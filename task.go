@@ -16,17 +16,17 @@ type RestartPolicy struct {
 }
 
 type DeployConfig struct {
-	ImageName     string             `json:"imageName"`
-	ImageTag      string             `json:"imageTag" bson:",omitempty"`
-	ServiceName   string             `json:"serviceName" bson:",omitempty"`
-	VolumeMounts  *map[string]string `json:"volumeMounts" bson:",omitempty"`
-	Files         *map[string][]byte `json:"files" bson:",omitempty"`
-	AutoRemove    bool               `json:"autoRemove"`
-	RestartPolicy RestartPolicy      `json:"restartPolicy" bson:",omitempty"`
-	Env           []string           `json:"env" bson:",omitempty"`
-	Ports         *map[string]string `json:"ports" bson:",omitempty"`
-	NetworkId     string             `json:"networkId" bson:",omitempty"`
-	NetworkName   string             `json:"networkName" bson:",omitempty"`
+	ImageName     string            `json:"imageName"`
+	ImageTag      string            `json:"imageTag" bson:",omitempty"`
+	ServiceName   string            `json:"serviceName" bson:",omitempty"`
+	VolumeMounts  map[string]string `json:"volumeMounts" bson:",omitempty"`
+	Files         map[string][]byte `json:"files" bson:",omitempty"`
+	AutoRemove    bool              `json:"autoRemove"`
+	RestartPolicy RestartPolicy     `json:"restartPolicy" bson:",omitempty"`
+	Env           []string          `json:"env" bson:",omitempty"`
+	Ports         map[string]string `json:"ports" bson:",omitempty"`
+	NetworkId     string            `json:"networkId" bson:",omitempty"`
+	NetworkName   string            `json:"networkName" bson:",omitempty"`
 }
 
 type RestartConfig struct {
