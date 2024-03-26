@@ -10,11 +10,6 @@ type BuildConfig struct {
 	RepoBranch string             `json:"repoBranch"`
 }
 
-type FileMountConfig struct {
-	Content string `json:"content" bson:",omitempty"`
-	Name    string `json:"name" bson:",omitempty"`
-}
-
 type RestartPolicy struct {
 	Name              string `json:"name" bson:",omitempty"`
 	MaximumRetryCount int    `json:"maxiumRetryCount" bson:",omitempty"`
@@ -24,14 +19,12 @@ type DeployConfig struct {
 	ImageName     string            `json:"imageName"`
 	ImageTag      string            `json:"imageTag" bson:",omitempty"`
 	ServiceName   string            `json:"serviceName" bson:",omitempty"`
-	MountSource   string            `json:"mountSource" bson:",omitempty"`
-	MountTarget   string            `json:"mountTarget" bson:",omitempty"`
-	FilesToMount  []FileMountConfig `json:"filesToMount" bson:",omitempty"`
+	VolumeMounts  map[string]string `json:"volumeMounts" bson:",omitempty"`
+	Files         map[string][]byte `json:"files" bson:",omitempty"`
 	AutoRemove    bool              `json:"autoRemove"`
 	RestartPolicy RestartPolicy     `json:"restartPolicy" bson:",omitempty"`
 	Env           []string          `json:"env" bson:",omitempty"`
-	HostPort      string            `json:"hostPort" bson:",omitempty"`
-	ExposedPort   string            `json:"exposedPort" bson:",omitempty"`
+	Ports         map[string]string `json:"ports" bson:",omitempty"`
 	NetworkId     string            `json:"networkId" bson:",omitempty"`
 	NetworkName   string            `json:"networkName" bson:",omitempty"`
 }
