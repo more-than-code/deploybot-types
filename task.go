@@ -20,7 +20,7 @@ type DeployConfig struct {
 	ImageTag      string            `json:"imageTag" bson:",omitempty"`
 	ServiceName   string            `json:"serviceName" bson:",omitempty"`
 	VolumeMounts  map[string]string `json:"volumeMounts" bson:",omitempty"`
-	Files         map[string][]byte `json:"files" bson:",omitempty"`
+	Files         map[string]string `json:"files" bson:",omitempty"`
 	AutoRemove    bool              `json:"autoRemove"`
 	RestartPolicy RestartPolicy     `json:"restartPolicy" bson:",omitempty"`
 	Env           []string          `json:"env" bson:",omitempty"`
