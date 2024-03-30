@@ -72,11 +72,12 @@ const (
 	EventDeploy = "Deploy"
 )
 
+type TaskType string
+
 const (
-	TaskTest    = "Test"
-	TaskBuild   = "Build"
-	TaskDeploy  = "Deploy"
-	TaskRestart = "Restart"
+	TestTask   TaskType = "test"
+	BuildTask  TaskType = "build"
+	DeployTask TaskType = "deploy"
 )
 
 type Role string

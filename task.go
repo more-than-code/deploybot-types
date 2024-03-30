@@ -16,5 +16,5 @@ type Task struct {
 	Remarks        string      `json:"remarks"`
 	AutoRun        bool        `json:"autoRun"`
 	Timeout        int64       `json:"timeout"` // minutes
-	Type           string      `json:"type"`
+	Type           TaskType    `json:"type"`
 }
