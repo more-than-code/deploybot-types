@@ -10,7 +10,7 @@ type Task struct {
 	ScheduledAt    Datetime    `json:"scheduledAt"`
 	Status         string      `json:"status"`
 	UpstreamTaskId ObjectId    `json:"upstreamTaskId" bson:",omitempty"`
-	StreamWebhook  string      `json:"streamWebhook" bson:",omitempty"`
+	WebhookHost    string      `json:"webhookHost" bson:",omitempty"`
 	LogUrl         string      `json:"logUrl" bson:",omitempty"`
 	Config         interface{} `json:"config"`
 	Remarks        string      `json:"remarks"`
